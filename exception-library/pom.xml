@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.abeldevelop.architecture.library</groupId>
 		<artifactId>abeldevelop-libraries-parent-pom</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 
     <artifactId>exception-library</artifactId>
