@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.abeldevelop.architecture.library.test.integration.cucumber.config.CucumberTestContext;
@@ -65,6 +66,8 @@ public class MakeRestCall {
         } catch (Exception e) {
             if(e instanceof HttpClientErrorException) {
                 addResponseInformationToContext((HttpClientErrorException) e);
+            } else if (e instanceof HttpServerErrorException) {
+                addResponseInformationToContext((HttpServerErrorException) e);
             } else {
                 e.printStackTrace();
                 assertThat(false).isEqualTo(true);
@@ -80,6 +83,12 @@ public class MakeRestCall {
     }
     
     private void addResponseInformationToContext(HttpClientErrorException response) throws Exception {
+        this.testContext.setResponseHeaders(response.getResponseHeaders());
+        this.testContext.setResponseBody(response.getResponseBodyAsString());
+        this.testContext.setResponseStatus(response.getStatusCode().value());
+    }
+    
+    private void addResponseInformationToContext(HttpServerErrorException response) throws Exception {
         this.testContext.setResponseHeaders(response.getResponseHeaders());
         this.testContext.setResponseBody(response.getResponseBodyAsString());
         this.testContext.setResponseStatus(response.getStatusCode().value());

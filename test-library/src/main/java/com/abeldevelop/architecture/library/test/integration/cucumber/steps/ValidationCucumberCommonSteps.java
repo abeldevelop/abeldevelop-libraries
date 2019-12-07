@@ -26,7 +26,7 @@ public class ValidationCucumberCommonSteps extends CucumberBaseSteps {
     @Then("I verify the {int} response code")
     public void i_verify_the_response_code(Integer expectedStatusCode) {
         log.debug(CucumberTestConstants.INTEGRATION_TEST + "START STEP => I verify the {} response code", expectedStatusCode);
-        assertThat(testContext().getResponseStatus()).isEqualTo(expectedStatusCode);
+        assertThat(testContext().getResponseStatus()).as("Verify the response code").isEqualTo(expectedStatusCode);
         log.debug(CucumberTestConstants.INTEGRATION_TEST + "END STEP => I verify the {} response code", expectedStatusCode);
     }
     
@@ -38,11 +38,11 @@ public class ValidationCucumberCommonSteps extends CucumberBaseSteps {
             mapper.registerModule(new JavaTimeModule());
             try {
                 ErrorResponseResource errorResponseResource = mapper.readValue(testContext().getResponseBody(), ErrorResponseResource.class);
-                assertThat(errorResponseResource.getMessage()).isEqualTo(errorResponseMessage);
+                assertThat(errorResponseResource.getMessage()).as("Verify the error response message").isEqualTo(errorResponseMessage);
                 log.debug(CucumberTestConstants.INTEGRATION_TEST + "I verify the error response message {}.", errorResponseMessage);
             } catch (Exception e) {
                 e.printStackTrace();
-                assertThat(false).isEqualTo(true);
+                assertThat(false).as("Error parse the error response").isEqualTo(true);
             }
         }
         log.debug(CucumberTestConstants.INTEGRATION_TEST + "END STEP => If response code not {} i verify the error response message {}", expectedResponseCode, errorResponseMessage);
