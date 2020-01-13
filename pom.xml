@@ -16,6 +16,7 @@
     <name>abeldevelop-libraries</name>
     
     <modules>
+		<module>model-library</module>
 		<module>property-library</module>
 		<module>logging-library</module>
 		<module>context-library</module>

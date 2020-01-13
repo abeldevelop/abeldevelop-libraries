@@ -17,6 +17,10 @@
             <groupId>com.abeldevelop.architecture.library</groupId>
             <artifactId>context-library</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.abeldevelop.architecture.library</groupId>
+            <artifactId>model-library</artifactId>
+		</dependency>
 		
 		<!-- SPRING DEPENDENCIES -->
         <dependency>
@@ -26,6 +30,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
         </dependency>
 	</dependencies>
 
