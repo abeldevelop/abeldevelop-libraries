@@ -16,13 +16,7 @@
     <name>abeldevelop-libraries</name>
     
     <modules>
-		<module>model-library</module>
-		<module>property-library</module>
-		<module>logging-library</module>
-		<module>context-library</module>
 		<module>common-library</module>
-		<module>exception-library</module>
-		<module>pagination-library</module>
         <module>test-library</module>
     </modules>
 

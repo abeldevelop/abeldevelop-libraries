@@ -1,2 +1,0 @@
-# exception-library
-Exception library

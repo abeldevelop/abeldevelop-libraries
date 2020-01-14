@@ -1,2 +1,0 @@
-# propertie-library
-propertie-library

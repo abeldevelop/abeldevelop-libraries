@@ -15,7 +15,7 @@
 		<!-- ABELDEVELOP DEPENDENCIES -->
         <dependency>
             <groupId>com.abeldevelop.architecture.library</groupId>
-            <artifactId>pagination-library</artifactId>
+            <artifactId>common-library</artifactId>
         </dependency>
 		
 		<!-- SPRING DEPENDENCIES -->

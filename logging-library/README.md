@@ -1,2 +1,0 @@
-# logging-library
-Logging library
